@@ -3,7 +3,8 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>7-Day Hybrid Training Plan</title>
+    <title>7-Day Training Plan</title>
+    <!-- React & Babel Scripts -->
     <script src="https://cloudflare.com"></script>
     <script src="https://cloudflare.com"></script>
     <script src="https://cloudflare.com"></script>
@@ -23,11 +24,12 @@
 </head>
 <body>
     <div id="root"></div>
+
     <script type="text/babel">
         const plan = [
             { day: "Day 1", label: "Lower — Quad Dominant", cardio: "10 min incline walk", mobility: "Hip/Ankle circles", exercises: [{ name: "Heel-Elevated Goblet Squat", sets: "3", reps: "10–12", note: "Slow 4s eccentric" }, { name: "Bulgarian Split Squat", sets: "3", reps: "8–10 ea.", note: "Drive through front heel" }] },
-            { day: "Day 2", label: "Upper — Push", cardio: "15 min easy row", mobility: "Shoulder circles", exercises: [{ name: "Incline DB Press", sets: "4", reps: "8–10", note: "Control the descent" }, { name: "Lateral Raise", sets: "3", reps: "15-20", note: "No momentum" }] },
-            { day: "Day 3", label: "Cardio + Mobility", cardio: "30 min rowing", mobility: "Full body session", exercises: [{ name: "Row Intervals", sets: "8", reps: "2:00", note: "1:00 rest between" }, { name: "90/90 Hip Stretch", sets: "2", reps: "60s", note: "Breathe deeply" }] },
+            { day: "Day 2", label: "Upper — Push", cardio: "15 min easy row", mobility: "Shoulder circles", exercises: [{ name: "Incline DB Press", sets: "4", reps: "8–10", note: "Control descent" }, { name: "Lateral Raise", sets: "3", reps: "15-20", note: "No momentum" }] },
+            { day: "Day 3", label: "Cardio + Mobility", cardio: "30 min rowing", mobility: "Full body session", exercises: [{ name: "Row Intervals", sets: "8", reps: "2:00", note: "1:00 rest" }, { name: "90/90 Hip Stretch", sets: "2", reps: "60s", note: "Breathe" }] },
             { day: "Day 4", label: "Lower — Hip Dominant", cardio: "10 min walk", mobility: "Hamstring flossing", exercises: [{ name: "Romanian Deadlift", sets: "4", reps: "8–10", note: "Hinge at hips" }, { name: "Hip Thrust", sets: "3", reps: "10-12", note: "Squeeze glutes" }] },
             { day: "Day 5", label: "Upper — Pull", cardio: "15 min row", mobility: "Lat stretch", exercises: [{ name: "Pull-Up / Lat Pulldown", sets: "4", reps: "6–12", note: "Lead with elbows" }, { name: "Hammer Curl", sets: "2", reps: "12 ea.", note: "Elbow health" }] },
             { day: "Day 6", label: "Full Body Pump", cardio: "10 min row finisher", mobility: "Body flow", exercises: [{ name: "Goblet Squat to Press", sets: "3", reps: "10", note: "Full body drive" }, { name: "Pallof Press", sets: "3", reps: "12 ea.", note: "Anti-rotation" }] },
@@ -56,7 +58,9 @@
                 </div>
             );
         }
-        ReactDOM.createRoot(document.getElementById('root')).render(<App />);
+
+        const root = ReactDOM.createRoot(document.getElementById("root"));
+        root.render(<App />);
     </script>
 </body>
 </html>
