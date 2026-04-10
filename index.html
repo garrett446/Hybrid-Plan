@@ -1,69 +1,165 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-<meta charset="UTF-8""")/>>
-<meta name="viewport" content="width=device-width, initial-scale=1.0""")/>>
-<title>Hybrid Training Plan</title>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react/18.2.0/umd/react.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/react-dom/18.2.0/umd/react-dom.production.min.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/7.23.2/babel.min.js"></script>
-<style>
-  * { box-sizing: border-box; margin: 0; padding: 0; }
-  body { background: #0a0a0a; color: white; font-family: sans-serif; padding: 20px; }
-  .day-card { border: 1px solid #333; margin-bottom: 20px; padding: 15px; border-radius: 8px; background: #111; }
-  h2 { color: #4ade80; margin-bottom: 10px; }
-  ul { list-style: none; margin-top: 10px; }
-  li { margin-bottom: 8px; font-size: 0.9rem; color: #ccc; }
-  strong { color: #fff; }
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hybrid Training Plan</title>
+    <!-- React & Babel Scripts -->
+    <script src="https://cloudflare.com"></script>
+    <script src="https://cloudflare.com"></script>
+    <script src="https://cloudflare.com"></script>
+    <style>
+        * { box-sizing: border-box; margin: 0; padding: 0; }
+        body { 
+            background: #0a0a0a; 
+            color: #e5e5e5; 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            line-height: 1.6;
+            padding: 20px;
+        }
+        .container { max-width: 800px; margin: 0 auto; }
+        h1 { color: #4ade80; text-align: center; margin-bottom: 30px; text-transform: uppercase; letter-spacing: 2px; }
+        .day-card { 
+            background: #171717; 
+            border: 1px solid #333; 
+            border-radius: 12px; 
+            padding: 20px; 
+            margin-bottom: 25px; 
+            box-shadow: 0 4px 6px rgba(0,0,0,0.3);
+        }
+        .day-header { border-bottom: 2px solid #4ade80; padding-bottom: 10px; margin-bottom: 15px; }
+        .day-title { color: #4ade80; font-size: 1.4rem; }
+        .day-label { color: #888; font-size: 0.9rem; text-transform: uppercase; }
+        .section-title { color: #fbbf24; font-size: 0.9rem; font-weight: bold; margin-top: 15px; text-transform: uppercase; }
+        .exercise-list { list-style: none; margin-top: 10px; }
+        .exercise-item { 
+            background: #262626; 
+            margin-bottom: 10px; 
+            padding: 12px; 
+            border-radius: 6px; 
+            border-left: 4px solid #4ade80;
+        }
+        .ex-name { font-weight: bold; color: #fff; display: block; }
+        .ex-meta { font-size: 0.85rem; color: #4ade80; font-weight: bold; }
+        .ex-note { font-size: 0.85rem; color: #a3a3a3; font-style: italic; display: block; margin-top: 4px; }
+    </style>
 </head>
 <body>
-<div id="root"></div>
+    <div id="root"></div>
 
-<script type="text/babel">
-const plan = [
-  {
-    day: "Day 1", label: "Lower — Quad / Knee Dominant", type: "strength",
-    cardio: "10 min incline walk warm-up",
-    mobility: "Hip flexor stretch 2x45s / Ankle circles / Leg swings",
-    exercises: [
-      { name: "Heel-Elevated Goblet Squat", sets: "3", reps: "10–12", note: "Slow 4s eccentric, full depth" },
-      { name: "Bulgarian Split Squat", sets: "3", reps: "8–10 ea.", note: "Drive through front heel" }
-    ],
-  },
-  {
-    day: "Day 2", label: "Upper — Push / Horizontal", type: "strength",
-    cardio: "15 min easy row",
-    mobility: "Thoracic rotation / Banded circles",
-    exercises: [
-      { name: "Incline DB Press", sets: "4", reps: "8–10", note: "Control the descent" }
-    ],
-  }
-  // ... Add your other days here following this exact quote format
-];
+    <script type="text/babel">
+        const plan = [
+            {
+                day: "Day 1", label: "Lower — Quad / Knee Dominant",
+                cardio: "10 min incline walk warm-up",
+                mobility: "Hip flexor stretch 2x45s / Ankle circles / Leg swings",
+                exercises: [
+                    { name: "Heel-Elevated Goblet Squat", sets: "3", reps: "10–12", note: "Slow 4s eccentric, full depth — feel the quad load" },
+                    { name: "Bulgarian Split Squat", sets: "3", reps: "8–10 ea.", note: "Rear foot on bench, lean torso slightly forward" },
+                    { name: "Leg Press (high & wide foot)", sets: "3", reps: "12–15", note: "Full range — don't lock out at top" },
+                    { name: "Walking Lunge", sets: "3", reps: "12 ea.", note: "Keep upright torso, controlled step" },
+                    { name: "Leg Curl", sets: "3", reps: "12–15", note: "Squeeze hard at peak contraction, slow lower" },
+                    { name: "Standing Calf Raise", sets: "3", reps: "15–20", note: "Full stretch at bottom — pause 1s" }
+                ]
+            },
+            {
+                day: "Day 2", label: "Upper — Push / Horizontal",
+                cardio: "15 min easy row (Zone 2)",
+                mobility: "Thoracic rotation / Banded shoulder circles / Pec stretch",
+                exercises: [
+                    { name: "Incline DB Press", sets: "4", reps: "8–10", note: "Control the descent to the chest" },
+                    { name: "Flat Barbell or Smith Press", sets: "3", reps: "8–10", note: "Medium grip, elbows ~45°" },
+                    { name: "Cable Fly (low to high)", sets: "3", reps: "12–15", note: "Lead with elbows. Squeeze at midline" },
+                    { name: "Seated DB Shoulder Press", sets: "3", reps: "10–12", note: "Stop just short of lockout" },
+                    { name: "Lateral Raise", sets: "3", reps: "15–20", note: "Slight forward lean, no momentum" },
+                    { name: "Tricep Pushdown + Overhead Ext", sets: "2+2", reps: "12+12", note: "Superset — burn it out" }
+                ]
+            },
+            {
+                day: "Day 3", label: "Cardio + Mobility",
+                cardio: "30–35 min rowing session",
+                mobility: "Full session — 20–25 min",
+                exercises: [
+                    { name: "Row Warm-Up", sets: "1", reps: "5 min", note: "Stroke rate 18–20 spm. Focus on form" },
+                    { name: "Intervals or Steady Row", sets: "1", reps: "20 min", note: "Intervals: 8x2:00 / 1:00 rest" },
+                    { name: "90/90 Hip Stretch", sets: "2", reps: "60s ea.", note: "Key for lower back health" },
+                    { name: "Thoracic Extension", sets: "2", reps: "10 reps", note: "Mid-back mobility" },
+                    { name: "Dead Bug", sets: "3", reps: "8 ea.", note: "Keep lumbar glued to floor" }
+                ]
+            },
+            {
+                day: "Day 4", label: "Lower — Hip / Hinge Dominant",
+                cardio: "10 min incline walk warm-up",
+                mobility: "Glute stretch / Hamstring flossing / Hip 90/90",
+                exercises: [
+                    { name: "Romanian Deadlift", sets: "4", reps: "8–10", note: "Hinge hard, feel the hamstring pull" },
+                    { name: "Hip Thrust", sets: "3", reps: "10–12", note: "Full hip extension — squeeze glutes" },
+                    { name: "Sumo or Trap Bar Deadlift", sets: "3", reps: "6–8", note: "Lower back friendly — brace hard" },
+                    { name: "Single-Leg RDL", sets: "3", reps: "8 ea.", note: "Balance + posterior chain" },
+                    { name: "Glute-Ham Raise / Nordic Curl", sets: "3", reps: "6–8", note: "Use band assist if needed" },
+                    { name: "Tibialis Raise", sets: "2", reps: "15–20", note: "Shin health + ankle strength" }
+                ]
+            },
+            {
+                day: "Day 5", label: "Upper — Pull / Vertical & Horizontal",
+                cardio: "15 min Zone 2 row or incline walk",
+                mobility: "Lat stretch / Banded pull-apart / Wrist circles",
+                exercises: [
+                    { name: "Pull-Up or Lat Pulldown", sets: "4", reps: "6–12", note: "Full dead hang at bottom" },
+                    { name: "Chest-Supported Row", sets: "3", reps: "10–12", note: "Safer, more isolated. Pull elbows back" },
+                    { name: "Single-Arm Cable Row", sets: "3", reps: "12 ea.", note: "Allow rotation at bottom" },
+                    { name: "Face Pull (rope)", sets: "3", reps: "15–20", note: "Shoulder health gold" },
+                    { name: "EZ Bar or DB Curl", sets: "3", reps: "10–12", note: "Supinate at top, no swinging" },
+                    { name: "Hammer Curl", sets: "2", reps: "12 ea.", note: "Brachialis + forearm" }
+                ]
+            },
+            {
+                day: "Day 6", label: "Full Body Pump / Conditioning",
+                cardio: "10 min row + 10 min incline finisher",
+                mobility: "Full body flow — 10 min",
+                exercises: [
+                    { name: "Goblet Squat to Press", sets: "3", reps: "10", note: "Compound movement — controlled" },
+                    { name: "DB RDL + Bent-Over Row", sets: "3", reps: "10+10", note: "Superset — full posterior chain" },
+                    { name: "Push-Up Variation", sets: "3", reps: "Max", note: "Archer, deficit, or decline" },
+                    { name: "Cable/Band Pull-Apart", sets: "3", reps: "20", note: "Squeeze at back" },
+                    { name: "Pallof Press", sets: "3", reps: "12 ea.", note: "Anti-rotation core stability" }
+                ]
+            }
+        ];
 
-function App() {
-  return (
-    <div>
-      <h1>My Hybrid Training Plan</h1>
-      {plan.map((item, idx) => (
-        <div key={idx} className="day-card">
-          <h2>{item.day}: {item.label}</h2>
-          <p><strong>Cardio:</strong> {item.cardio}</p>
-          <p><strong>Mobility:</strong> {item.mobility}</p>
-          <ul>
-            {item.exercises.map((ex, i) => (
-              <li key={i}><strong>{ex.name}</strong> - {ex.sets}x{ex.reps} <br/> <em>{ex.note}</em></li>
-            ))}
-          </ul>
-        </div>
-      ))}
-    </div>
-  );
-}
+        function App() {
+            return (
+                <div className="container">
+                    <h1>Hybrid Training</h1>
+                    {plan.map((day, index) => (
+                        <div key={index} className="day-card">
+                            <div className="day-header">
+                                <div className="day-label">{day.label}</div>
+                                <div className="day-title">{day.day}</div>
+                            </div>
+                            
+                            <div className="section-title">Warm-up & Prep</div>
+                            <p style={{fontSize: '0.9rem'}}>🏃 {day.cardio}</p>
+                            <p style={{fontSize: '0.9rem'}}>🧘 {day.mobility}</p>
 
-const root = ReactDOM.createRoot(document.getElementById('root'));
-root.render(<App />);
-</script>
+                            <div className="section-title">Exercises</div>
+                            <div className="exercise-list">
+                                {day.exercises.map((ex, i) => (
+                                    <div key={i} className="exercise-item">
+                                        <span className="ex-name">{ex.name}</span>
+                                        <span className="ex-meta">{ex.sets} sets x {ex.reps} reps</span>
+                                        <span className="ex-note">{ex.note}</span>
+                                    </div>
+                                ))}
+                            </div>
+                        </div>
+                    ))}
+                </div>
+            );
+        }
+
+        const root = ReactDOM.createRoot(document.getElementById('root'));
+        root.render(<App />);
+    </script>
 </body>
 </html>
